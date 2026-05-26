@@ -139,7 +139,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 For questions or support, feel free to reach out:
 - GitHub: [@Huzaifa-falak](https://github.com/Huzaifa-falak)
-- Email: [Your Email]
+- Email: [huzaifa.webdev.pk@gmail.com]
 
 ---
 
