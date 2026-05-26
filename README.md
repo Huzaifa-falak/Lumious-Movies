@@ -80,8 +80,8 @@ src/
 ├── components/      # Reusable components
 ├── pages/          # Page components
 ├── services/       # API & Supabase services
-├── context/        # React context
-├── styles/         # CSS styles
+├── context/        # React context API
+├── index.css/      # For overall app theme
 └── App.jsx         # Main app component
 ```
 
