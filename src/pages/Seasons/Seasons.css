@@ -1,0 +1,41 @@
+.seasons-page{
+  background: #0b0b0b;
+  min-height: 100vh;
+  padding-top: 100px;
+}
+
+.season-card{
+  background: #141414;
+  border-radius: 12px;
+  overflow: hidden;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+.seasons-header h1{
+  color: var(--primary-color);
+}
+
+.season-card:hover{
+  transform: translateY(-5px);
+}
+
+.season-card img{
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.season-info{
+  padding: 12px;
+  color:var(--primary-color);
+}
+
+.season-info h5{
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.season-info p{
+  color: #aaa;
+  font-size: 14px;
+}

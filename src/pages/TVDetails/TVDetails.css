@@ -1,0 +1,67 @@
+.tv-details-page{
+  background: #0b0b0b;
+  min-height: 100vh;
+}
+
+.tv-backdrop{
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.tv-overlay{
+  background: rgba(0,0,0,0.8);
+  padding: 120px 0 80px;
+}
+
+.tv-poster{
+  border-radius: 15px;
+  max-height: 500px;
+  box-shadow: 0 0 30px rgba(0,0,0,0.5);
+}
+
+.tv-badge{
+  background: rgba(255,255,255,0.1);
+  padding: 8px 14px;
+  border-radius: 30px;
+  font-size: 14px;
+}
+
+.genre-pill{
+  background: #e57e09;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  color: white;
+}
+
+.tv-overview{
+  color: #ccc;
+  line-height: 1.8;
+  max-width: 750px;
+}
+
+.season-card{
+  background: #141414;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: 0.3s ease;
+}
+
+.season-card:hover{
+  transform: translateY(-5px);
+}
+
+.season-content{
+  padding: 15px;
+}
+
+.season-content h5{
+  color: white;
+  font-size: 16px;
+}
+
+.season-content p{
+  color: #aaa;
+  font-size: 14px;
+}

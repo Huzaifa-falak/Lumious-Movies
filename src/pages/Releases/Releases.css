@@ -1,0 +1,39 @@
+.releases-page{
+  background:#0b0b0b;
+  min-height:100vh;
+  padding-top:100px;
+}
+
+.release-hero{
+  margin-bottom:60px;
+}
+
+.release-hero h1{
+  color:var(--primary-color);
+  font-size:52px;
+  font-weight:800;
+  margin-bottom:15px;
+}
+
+.release-hero p{
+  color:#aaa;
+  max-width:700px;
+  line-height:1.8;
+}
+
+.release-section{
+  margin-bottom:70px;
+}
+
+.section-title{
+  margin-bottom:30px;
+}
+
+.section-title h2{
+  color:white;
+  font-size:32px;
+  font-weight:700;
+}
+.release-section h2{
+  color: var(--primary-color);
+}

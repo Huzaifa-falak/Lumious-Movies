@@ -1,0 +1,46 @@
+.top50-page{
+  background:#0b0b0b;
+  min-height:100vh;
+  padding-top:100px;
+}
+
+.top50-hero{
+  margin-bottom:60px;
+}
+
+.top50-hero h1{
+  color:var(--primary-color);
+  font-size:52px;
+  font-weight:800;
+  margin-bottom:15px;
+}
+
+.top50-hero p{
+  color:#aaa;
+  max-width:700px;
+  line-height:1.8;
+}
+
+.top50-card{
+  position:relative;
+}
+
+.rank-badge{
+  position:absolute;
+  top:10px;
+  left:10px;
+  z-index:10;
+
+  background:var(--primary-color);
+  color:black;
+
+  font-weight:800;
+  padding:6px 12px;
+
+  border-radius:30px;
+
+  font-size:14px;
+
+  box-shadow:
+  0 10px 20px rgba(0,0,0,0.3);
+}

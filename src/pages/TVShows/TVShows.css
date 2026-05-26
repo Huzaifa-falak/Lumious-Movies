@@ -1,0 +1,66 @@
+.tvshows-page{
+  background: #0b0b0b;
+  min-height: 100vh;
+  padding-top: 100px;
+}
+
+
+.tvshows-header{
+  margin-bottom: 35px;
+}
+
+.tvshows-header h1{
+  color:var(--primary-color);
+  font-weight: 800;
+  font-size: 2.3rem;
+  letter-spacing: 0.5px;
+}
+
+.tvshows-header p{
+  color: #9f9f9f;
+  max-width: 650px;
+  line-height: 1.7;
+  margin-top: 10px;
+}
+
+
+.tvshows-grid{
+  row-gap: 25px;
+}
+
+.empty-text{
+  color: #888;
+  text-align: center;
+  font-size: 15px;
+  padding: 50px 0;
+}
+
+
+.tvshows-page .container{
+  animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn{
+  from{
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to{
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+@media (max-width: 768px){
+
+  .tvshows-header{
+    text-align: center;
+  }
+
+  .tvshows-header h1{
+    font-size: 1.9rem;
+  }
+
+}

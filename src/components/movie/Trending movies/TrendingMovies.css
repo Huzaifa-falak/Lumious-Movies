@@ -1,0 +1,32 @@
+.trending-section{
+  padding: 80px 0;
+}
+
+.section-header{
+  margin-bottom: 30px;
+}
+
+.section-header h2{
+  font-size: 2.2rem;
+  font-weight: 800;
+}
+
+.movies-row{
+  display: flex;
+  gap: 20px;
+
+  overflow-x: auto;
+
+  padding-bottom: 10px;
+
+  scroll-behavior: smooth;
+}
+
+.movies-row::-webkit-scrollbar{
+  height: 8px;
+}
+
+.movies-row::-webkit-scrollbar-thumb{
+  background: var(--primary-color);
+  border-radius: 20px;
+}
