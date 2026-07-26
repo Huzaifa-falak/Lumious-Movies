@@ -56,35 +56,20 @@ React 19 (Component-Based)
 ### Backend & Services
 ```
 Supabase (Backend-as-a-Service)
-├── PostgreSQL (Database)
-├── Row-Level Security (Authorization)
-├── Realtime Updates (WebSocket)
-└── Authentication (JWT-based)
-```
+
+├── Row-Level Security (Authorization
 
 ### External APIs
 ```
 TMDB API v3
-├── Movie Database (50K+ titles)
+├── Movie Database (50+ titles)
 ├── Real-time Data
 ├── Image CDN
 └── Advanced Filters
-```
-
-### Build & Tooling
-```
-Vite (Build Tool)
-├── HMR (Hot Module Replacement)
-├── Tree Shaking (Code Optimization)
-├── CSS Modules Support
-└── Production Build: ~350KB gzip
-```
-
----
 
 ## 📊 System Architecture
 
-```
+
 ┌─────────────────────────────────────────────────────────────┐
 │                   User Browser (Client)                       │
 │  ┌──────────────────────────────────────────────────────┐   │
@@ -94,13 +79,13 @@ Vite (Build Tool)
 │  └────────────────┬──────────────────────────────────────┘   │
 └───────────────────┼──────────────────────────────────────────┘
                     │ HTTPS API Calls
-        ┌───────────┴──────────────┬──────────────┐
-        ▼                          ▼              ▼
-   ┌─────────────┐        ┌──────────────┐  ┌────────────┐
-   │ TMDB API    │        │  Supabase    │  │ Cloudflare │
-   │ (Movies)    │        │  (Auth+DB)   │  │ (CDN)      │
-   │ 50K+ Films  │        │ PostgreSQL   │  │            │
-   └─────────────┘        └──────────────┘  └────────────┘
+        ┌───────────┴──────────────
+        ▼                          ▼              
+   ┌─────────────┐        ┌──────────────┐  
+   │ TMDB API    │        │  Supabase    │  
+   │ (Movies)    │        │  (Auth+DB)   │  
+   │ 50+ Films  │        │    │  │            
+   └─────────────┘        └──────────────┘  
 ```
 
 ---
@@ -288,41 +273,7 @@ GET /search/movie?query=title
 GET /genre/movie/list
 ```
 
-### Supabase Setup
 
-**Database Schema:**
-```sql
-CREATE TABLE watchlist (
-  id BIGSERIAL PRIMARY KEY,
-  user_id UUID REFERENCES auth.users(id) ON DELETE CASCADE,
-  movie_id INTEGER NOT NULL,
-  movie_title VARCHAR(255) NOT NULL,
-  poster_path VARCHAR(255),
-  added_at TIMESTAMP DEFAULT NOW(),
-  UNIQUE(user_id, movie_id)
-);
-
-CREATE INDEX idx_user_movies ON watchlist(user_id);
-```
-
-**Enable Row-Level Security (RLS):**
-```sql
-ALTER TABLE watchlist ENABLE ROW LEVEL SECURITY;
-
-CREATE POLICY "Users can view own watchlist"
-  ON watchlist FOR SELECT
-  USING (auth.uid() = user_id);
-
-CREATE POLICY "Users can add to own watchlist"
-  ON watchlist FOR INSERT
-  WITH CHECK (auth.uid() = user_id);
-
-CREATE POLICY "Users can delete from own watchlist"
-  ON watchlist FOR DELETE
-  USING (auth.uid() = user_id);
-```
-
----
 
 ## 🚀 Performance Optimization
 
@@ -339,114 +290,7 @@ CREATE POLICY "Users can delete from own watchlist"
 - ✅ CSS optimization
 - ✅ Minification & compression
 
-### Future Optimizations
-- [ ] Service Workers for offline support
-- [ ] Next.js migration for SSR
-- [ ] Image optimization (WebP, AVIF)
-- [ ] Database query optimization
 
----
-
-## 🔐 Security Implementation
-
-### Authentication
-- ✅ JWT tokens (Supabase managed)
-- ✅ Secure password hashing (bcrypt)
-- ✅ HTTPS only
-- ✅ CSRF protection via SameSite cookies
-
-### Authorization
-- ✅ Row-Level Security (RLS) on database
-- ✅ User-specific watchlist isolation
-- ✅ Protected routes
-
-### API Security
-- ✅ Input validation
-- ✅ Rate limiting (TMDB API)
-- ✅ Environment variable secrets
-- ✅ No sensitive data in localStorage
-
-**Best Practices:**
-```javascript
-// ✅ Good: Use context for auth state
-const { user, login, logout } = useAuth();
-
-// ❌ Bad: Store password in state
-const [password, setPassword] = useState('');
-```
-
----
-
-## 🧪 Testing Strategy
-
-### Manual Testing Checklist
-- [ ] Authentication flow (signup/login/logout)
-- [ ] Watchlist add/remove functionality
-- [ ] Search functionality
-- [ ] Responsive design (mobile/tablet/desktop)
-- [ ] API error handling
-- [ ] Network throttling (slow 3G)
-
-### Future: Automated Testing
-```bash
-# Unit tests (Jest + React Testing Library)
-npm run test
-
-# E2E tests (Cypress)
-npm run test:e2e
-
-# Coverage report
-npm run test:coverage
-```
-
----
-
-## 🐛 Troubleshooting
-
-### "Movies Not Loading"
-```
-1. Check TMDB API key in .env
-2. Verify TMDB API account status
-3. Check browser DevTools → Network tab
-4. Look for CORS errors
-```
-
-### "Authentication Issues"
-```
-1. Clear browser cookies/cache
-2. Verify Supabase URL & key in .env
-3. Check Supabase Auth settings
-4. Test Supabase connectivity in console:
-   console.log(supabaseClient.auth.session())
-```
-
-### "Watchlist Not Syncing"
-```
-1. Check user authentication status
-2. Verify Supabase RLS policies
-3. Check database connection
-4. Review browser console for errors
-```
-
-### "Slow Performance"
-```
-1. Clear cache (Ctrl+Shift+Del)
-2. Check network throttling
-3. Verify image optimization
-4. Review React DevTools for re-renders
-```
-
----
-
-## 📈 Performance Monitoring
-
-### Recommended Tools
-- 🔍 **Chrome DevTools** - Local profiling
-- 📊 **Lighthouse** - Performance audit
-- 🚨 **Sentry** - Error tracking
-- ⏱️ **New Relic** - Performance monitoring
-
----
 
 ## 🤝 Contributing
 
@@ -479,17 +323,7 @@ This project is licensed under the **MIT License** - see [LICENSE](LICENSE) file
 - ⚛️ [React](https://react.dev/) - Frontend library
 - 📚 [Vite](https://vitejs.dev/) - Build tool
 
----
 
-## 📊 Project Stats
-
-- **Total Commits:** 25+
-- **Lines of Code:** 3,500+
-- **Components:** 12+
-- **API Endpoints:** 5+
-- **Development Time:** 40+ hours
-
----
 
 ## 📧 Support & Contact
 
@@ -498,27 +332,8 @@ This project is licensed under the **MIT License** - see [LICENSE](LICENSE) file
 - 💬 [Open an Issue](https://github.com/Huzaifa-falak/Lumious-Movies/issues/new)
 - 📧 **Email:** huzaifa.webdev.pk@gmail.com
 - 🐙 **GitHub:** [@Huzaifa-falak](https://github.com/Huzaifa-falak)
-- 💼 **LinkedIn:** [Connect with me](#)
 
----
 
-## 🗺️ Roadmap
-
-See [ROADMAP.md](docs/ROADMAP.md) for planned features and improvements.
-
-**Short-term (Next 30 days):**
-- [ ] Add dark mode toggle
-- [ ] Implement PWA support
-- [ ] Add user reviews system
-- [ ] Performance optimization
-
-**Long-term (Next 90 days):**
-- [ ] Backend server (Node.js/Express)
-- [ ] Advanced recommendation engine
-- [ ] Social features (sharing, ratings)
-- [ ] Mobile app (React Native)
-
----
 
 <div align="center">
 
